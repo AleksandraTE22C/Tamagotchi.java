@@ -1,17 +1,29 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Tamagotchi {
     private int hunger = 0;
     private int boredom = 0;
     private boolean isAlive;
-
-    private Random generator = new Random();
     String name;
+    private Random generator = new Random();
+    private ArrayList<String> words = new ArrayList<String>();
+
 
     public Tamagotchi(String incomingName) {
         name = incomingName;
         isAlive = true;
         generator.nextInt(10);
+        words.add("Hello!");
+    }
+
+    public void feed(){
+        hunger = hunger - generator.nextInt(10);
+        
+    }
+
+    public void play(){
+        boredom = boredom - generator.nextInt(10);
     }
 
     public boolean getAlive() {
@@ -32,7 +44,7 @@ public class Tamagotchi {
             isAlive = false;
             System.out.println("You neglected to take care of your pet.");
             Thread.sleep(1500);
-            System.out.println(name + " ran away. It was eventually found and adopted by a family that loved and cherished it.");
+            System.out.println(name + " ran away. It was eventually found and adopted by a loving family.");
             Thread.sleep(1000);
             System.out.println("Maybe if you spent more time with it...");
         } else {
