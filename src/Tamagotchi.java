@@ -1,36 +1,30 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Tamagotchi {
+    Scanner key = new Scanner(System.in);
     private int hunger = 0;
     private int boredom = 0;
     private boolean isAlive;
     String name;
-    private Random generator = new Random();
+    private Random rand = new Random();
     private ArrayList<String> words = new ArrayList<String>();
 
 
     public Tamagotchi(String incomingName) {
         name = incomingName;
         isAlive = true;
-        generator.nextInt(10);
-        words.add("Hello!");
+        rand.nextInt(10);
+        words.add("'Hello!'");
+        words.add("'sdfghj'");
+        words.add("'ghyjuj'");
     }
 
-    public void feed(){
-        hunger = hunger - generator.nextInt(10);
-        
-    }
+    public void tick() throws InterruptedException {
+        hunger = hunger + 2;
+        boredom = boredom + 3;
 
-    public void play(){
-        boredom = boredom - generator.nextInt(10);
-    }
-
-    public boolean getAlive() {
-        return isAlive;
-    }
-
-    public void setAlive() throws InterruptedException {
         if (hunger >= 10) {
             isAlive = false;
             System.out.println("You neglected to take care of your pet.");
@@ -50,6 +44,45 @@ public class Tamagotchi {
         } else {
             isAlive = true;
         }
+
+    }
+
+    public void speak(){
+        int wordAmnt = rand.nextInt(words.size());
+        System.out.println(words.get(wordAmnt));
+        reduceBoredom();
+    }
+
+    public void teach(String word) throws InterruptedException {
+        words.add(word);
+        Thread.sleep(1000);
+        System.out.println(name + " learned the word " + word + "!");
+        System.out.println();
+        reduceBoredom();
+    }
+
+    public void printStats(){
+        System.out.println("Hunger: " + hunger + " boredom: " + boredom);
+    }
+
+    public void feed(){
+        hunger = hunger - rand.nextInt(5);
+        if(hunger < 0){
+            hunger = 0;
+        }
+        
+    }
+
+
+    public void reduceBoredom(){
+        boredom = boredom - rand.nextInt(5);
+        if(boredom < 0){
+            boredom = 0;
+        }
+    }
+
+    public boolean getAlive() {
+        return isAlive;
     }
 
 }
