@@ -18,12 +18,24 @@ public class Main {
             System.out.println();
             //System.out.println("What will you do?");
             //System.out.println("Play    Feed    Teach   Speak    Do nothing");
-            //System.out.println("What word should " + pet.name + " learn?");
-            //pet.teach(key.nextLine());
-            //pet.speak();
+            String action = key.next();
 
+            if (action.equalsIgnoreCase("play") || action.equals("1")){
 
+            } else if (action.equalsIgnoreCase("feed") || action.equals("2")){
 
+            } else if (action.equalsIgnoreCase("teach") || action.equals("3")) {
+                System.out.println("What word should " + pet.name + " learn?");
+                pet.teach(key.nextLine());
+                pet.speak();
+            } else if (action.equalsIgnoreCase("speak") || action.equals("4")){
+                pet.speak();
+            } else if (action.equalsIgnoreCase("do nothing") || action.equals("5")){
+                System.out.println("You chose to do nothing.");
+                Thread.sleep(1000);
+                System.out.println("Time passes...");
+            }
+            pet.tick();
         }
     }
 

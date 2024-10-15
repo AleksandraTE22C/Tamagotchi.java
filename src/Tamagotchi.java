@@ -17,8 +17,8 @@ public class Tamagotchi {
         isAlive = true;
         rand.nextInt(10);
         words.add("'Hello!'");
-        words.add("'sdfghj'");
-        words.add("'ghyjuj'");
+        words.add("'(>⩊<)'");
+        words.add("'o(≧▽≦)o'");
     }
 
     public void tick() throws InterruptedException {
