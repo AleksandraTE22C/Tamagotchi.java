@@ -23,17 +23,21 @@ public class Main {
             if (action.equalsIgnoreCase("play") || action.equals("1")){
 
             } else if (action.equalsIgnoreCase("feed") || action.equals("2")){
+                pet.feed();
 
             } else if (action.equalsIgnoreCase("teach") || action.equals("3")) {
                 System.out.println("What word should " + pet.name + " learn?");
                 pet.teach(key.nextLine());
                 pet.speak();
+
             } else if (action.equalsIgnoreCase("speak") || action.equals("4")){
                 pet.speak();
+
             } else if (action.equalsIgnoreCase("do nothing") || action.equals("5")){
                 System.out.println("You chose to do nothing.");
                 Thread.sleep(1000);
                 System.out.println("Time passes...");
+
             }
             pet.tick();
         }

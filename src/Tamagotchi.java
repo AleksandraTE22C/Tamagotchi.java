@@ -66,11 +66,17 @@ public class Tamagotchi {
     }
 
     public void feed(){
+        System.out.println("You fed "+name);
         hunger = hunger - rand.nextInt(5);
         if(hunger < 0){
             hunger = 0;
         }
+        System.out.println("Hunger: " + hunger);
         
+    }
+
+    public void play(){
+        System.out.println("You played with " + name + "!");
     }
 
 
